@@ -8,3 +8,7 @@ $target: '[data-id="calculadora-rescisao-trabalhista"]';
   margin: 0;
   padding: 0;
 }
+
+#{$target} {
+  @import "_bootstrap";
+}
