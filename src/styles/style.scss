@@ -1,0 +1,10 @@
+$target: '[data-id="calculadora-rescisao-trabalhista"]';
+
+#{$target},
+#{$target} *,
+#{$target} *::before,
+#{$target} *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
