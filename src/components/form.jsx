@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import constants from "../contants";
 
 export default function Form({ formValues, setFormValues, setHasResult }) {
   function handleSubmit(event) {
@@ -24,7 +25,7 @@ export default function Form({ formValues, setFormValues, setHasResult }) {
   return (
     <>
       <div className="col-12">
-        <h2>Calculadora de Rescisão Trabalhista</h2>
+        <h3>Calculadora de Rescisão Trabalhista</h3>
         <hr />
       </div>
 
@@ -106,26 +107,11 @@ export default function Form({ formValues, setFormValues, setHasResult }) {
                   required
                   defaultValue={formValues.motivo}
                 >
-                  <option value="demissao-comum-acordo">
-                    Demissão de comum acordo
-                  </option>
-                  <option value="dispensa-sem-justa-causa">
-                    Dispensa sem justa causa
-                  </option>
-                  <option value="dispensa-com-justa-causa">
-                    Dispensa com justa causa
-                  </option>
-                  <option value="pedido-demissao">Pedido de demissão</option>
-                  <option value="exp-no-prazo">
-                    Encerramento de contrato de experiência no prazo
-                  </option>
-                  <option value="exp-antes-prazo">
-                    Encerramento de contrato de experiência antes prazo
-                  </option>
-                  <option value="aposentadoria">
-                    Aposentadoria do empregado
-                  </option>
-                  <option value="falecimento">Falecimento do empregador</option>
+                  {Object.keys(constants.motivos).map((motivo) => (
+                    <option key={motivo} value={motivo}>
+                      {constants.motivos[motivo]}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -142,12 +128,11 @@ export default function Form({ formValues, setFormValues, setHasResult }) {
                   required
                   defaultValue={formValues.avisoPrevio}
                 >
-                  <option value="trabalhado">Trabalhado</option>
-                  <option value="indenizado">Indenizado pelo empregador</option>
-                  <option value="descumprido">
-                    Não cumprido pelo empregado
-                  </option>
-                  <option value="dispensado">Dispensado</option>
+                  {Object.keys(constants.avisoPrevio).map((avisoPrevio) => (
+                    <option key={avisoPrevio} value={avisoPrevio}>
+                      {constants.avisoPrevio[avisoPrevio]}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
