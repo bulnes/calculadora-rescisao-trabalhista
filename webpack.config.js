@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
@@ -15,6 +15,9 @@ module.exports = {
     },
     compress: true,
     port: 9000,
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
   },
   module: {
     rules: [
@@ -35,12 +38,15 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.(?:js|mjs|cjs)$/,
+        test: /\.(?:js|jsx|mjs|cjs)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: [["@babel/preset-env", { targets: "defaults" }]],
+            presets: [
+              ["@babel/preset-env", { targets: { node: "current" } }],
+              "@babel/preset-react",
+            ],
             plugins: ["@babel/plugin-transform-runtime"],
           },
         },

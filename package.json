@@ -2,7 +2,6 @@
   "name": "calculadora-rescisao-trabalhista",
   "version": "1.0.0",
   "description": "Calculadora de Rescisão Trabalhista",
-  "main": "src/index.js",
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
@@ -14,11 +13,14 @@
     "@babel/core": "^7.23.7",
     "@babel/plugin-transform-runtime": "^7.23.7",
     "@babel/preset-env": "^7.23.7",
+    "@babel/preset-react": "^7.23.3",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.8.1",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.33.2",
     "sass": "^1.69.7",
     "sass-loader": "^13.3.3",
     "style-loader": "^3.3.3",
@@ -27,6 +29,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "bootstrap": "^3.4.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

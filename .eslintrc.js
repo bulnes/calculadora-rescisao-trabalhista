@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: "airbnb-base",
+  extends: ["airbnb-base", "plugin:react/recommended"],
   overrides: [
     {
       env: {
@@ -21,6 +21,6 @@ module.exports = {
   },
   rules: {
     // allow double quotes
-    quotes: ["error", "double"],
+    quotes: ["error", "double", { avoidEscape: true }],
   },
 };
