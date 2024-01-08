@@ -2,15 +2,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import constants from "../contants";
+import calcularRescisao from "../utils";
 
 export default function Result({ formValues, setHasResult }) {
   function handleComeback() {
     setHasResult(false);
   }
 
-  React.useEffect(() => {
-    window.console.log(formValues);
-  }, [formValues]);
+  const rescisao = calcularRescisao({ ...formValues });
 
   return (
     <>
@@ -101,6 +100,74 @@ export default function Result({ formValues, setHasResult }) {
               <td>9</td>
               <td>Férias vencidas</td>
               <td>{formValues.feriasVencidas} dia(s)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr />
+
+      <div className="col-12">
+        <h3>Resultado</h3>
+
+        <table className="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Descrição</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Valor do aviso prévio</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.avisoPrevio)}
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Valor das férias</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.ferias)}
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Valor do 13º salário</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.decimoTerceiro)}
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Valor do FGTS</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.multaFGTS)}
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Valor total da rescisão</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.totalRescisao)}
+              </td>
             </tr>
           </tbody>
         </table>
