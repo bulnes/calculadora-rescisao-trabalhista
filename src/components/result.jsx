@@ -98,8 +98,13 @@ export default function Result({ formValues, setHasResult }) {
             </tr>
             <tr>
               <td>9</td>
-              <td>Férias vencidas</td>
-              <td>{formValues.feriasVencidas} dia(s)</td>
+              <td>Adiantamento Salarial</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(formValues.adiantamentoSalarial)}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -121,37 +126,165 @@ export default function Result({ formValues, setHasResult }) {
           <tbody>
             <tr>
               <td>1</td>
-              <td>Valor do aviso prévio</td>
+              <td>Aviso Prévio Indenizado</td>
               <td>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
-                }).format(rescisao.avisoPrevio)}
+                }).format(rescisao.valorAvisoPrevio)}
               </td>
             </tr>
             <tr>
               <td>2</td>
-              <td>Valor das férias</td>
+              <td>Saldo de Salários</td>
               <td>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
-                }).format(rescisao.ferias)}
+                }).format(rescisao.saldoSalarios)}
               </td>
             </tr>
             <tr>
               <td>3</td>
-              <td>Valor do 13º salário</td>
+              <td>Saldo de Salário Família</td>
               <td>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
-                }).format(rescisao.decimoTerceiro)}
+                }).format(rescisao.saldoSalarioFamilia)}
               </td>
             </tr>
             <tr>
               <td>4</td>
-              <td>Valor do FGTS</td>
+              <td>13º salário proporcional</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.decimoTerceiroProporcional)}
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>13º salário indenizado</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.decimoTerceiroIndenizado)}
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Férias vencidas</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.valorFeriasVencidas)}
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Férias proporcionais</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.valorFeriasProporcionais)}
+              </td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Férias indenizadas</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.valorFeriasIndenizadas)}
+              </td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>1/3 das Férias</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.umTercoFerias)}
+              </td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>
+                <strong>Total Bruto</strong>
+              </td>
+              <td>
+                <strong>
+                  {Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(rescisao.totalBruto)}
+                </strong>
+              </td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Desconto INSS Saldo de Salário</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.descontoINSSSaldoSalario)}
+              </td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Desconto INSS 13º salário</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.descontoINSS13Salario)}
+              </td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Total de descontos</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.totalDescontos)}
+              </td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>
+                <strong>Total líquido</strong>
+              </td>
+              <td>
+                <strong>
+                  {Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(rescisao.totalLiquido)}
+                </strong>
+              </td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>FGTS que será depositado</td>
+              <td>
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(rescisao.fgtsDaRescisao)}
+              </td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>Multa FGTS 40%</td>
               <td>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
@@ -160,13 +293,17 @@ export default function Result({ formValues, setHasResult }) {
               </td>
             </tr>
             <tr>
-              <td>5</td>
-              <td>Valor total da rescisão</td>
+              <td>17</td>
               <td>
-                {Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(rescisao.totalRescisao)}
+                <strong>A receber na C.E.F.</strong>
+              </td>
+              <td>
+                <strong>
+                  {Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(rescisao.totalReceberCEF)}
+                </strong>
               </td>
             </tr>
           </tbody>

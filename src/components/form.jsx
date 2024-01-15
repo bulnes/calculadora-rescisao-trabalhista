@@ -15,7 +15,7 @@ export default function Form({ formValues, setFormValues, setHasResult }) {
       ferias: event.target.ferias.checked,
       numeroDependentes: Number(event.target.numeroDependentes.value),
       saldoFGTS: Number(event.target.saldoFGTS.value),
-      feriasVencidas: Number(event.target.feriasVencidas.value),
+      adiantamentoSalarial: Number(event.target.adiantamentoSalarial.value),
     };
 
     setFormValues({ ...formData });
@@ -145,7 +145,7 @@ export default function Form({ formValues, setFormValues, setHasResult }) {
                     name="ferias"
                     defaultChecked={formValues.ferias}
                   />{" "}
-                  Possui férias adquiridas no ano anterior?
+                  Possui férias vencidas
                 </label>
               </div>
 
@@ -199,23 +199,23 @@ export default function Form({ formValues, setFormValues, setHasResult }) {
 
             <div className="col-xs-12 col-md-4">
               <div className="form-group">
-                <label className="control-label" htmlFor="feriasVencidas">
-                  Férias vencidas
+                <label className="control-label" htmlFor="adiantamentoSalarial">
+                  Valor adiantamento salarial
                 </label>
 
                 <div className="input-group">
+                  <span className="input-group-addon">R$</span>
                   <input
                     type="number"
                     className="form-control"
-                    id="feriasVencidas"
+                    id="adiantamentoSalarial"
                     placeholder="0"
                     required
                     min={0}
                     step={1}
                     pattern="\d+"
-                    defaultValue={formValues.feriasVencidas}
+                    defaultValue={formValues.adiantamentoSalarial}
                   />
-                  <span className="input-group-addon">dias</span>
                 </div>
               </div>
             </div>

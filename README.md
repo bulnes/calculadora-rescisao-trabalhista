@@ -66,3 +66,5 @@ O mês de trabalho é contabilizado a partir do decimo quinto dia trabalhado.
 Na demissão por justa causa não se pagam as férias proporcionais, apenas as vencidas.
 
 No pedido de demissão, o funcionário pode ter o valor do aviso prévio descontado de suas verbas.
+
+Video base: https://www.youtube.com/watch?v=OrDcG8mS0B0
