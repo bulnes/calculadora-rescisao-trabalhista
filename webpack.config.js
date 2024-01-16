@@ -1,10 +1,13 @@
 const path = require("path");
 
+// Load version from package.json
+const { version } = require("./package.json");
+
 module.exports = {
   entry: "./src/index.jsx",
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist", version),
     environment: {
       arrowFunction: false,
     },
