@@ -226,9 +226,11 @@ export default function Form({ formValues, setFormValues, setHasResult }) {
               <p className="text-right">
                 <br />
 
-                <button type="submit" className="btn btn-primary btn-lg">
-                  Calcular
-                </button>
+                <input
+                  type="submit"
+                  value="Calcular"
+                  className="btn btn-primary btn-lg"
+                />
               </p>
             </div>
           </div>
