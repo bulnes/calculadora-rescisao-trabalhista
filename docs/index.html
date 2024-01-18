@@ -34,7 +34,16 @@
   </head>
   <body>
     <div data-id="calculadora-rescisao-trabalhista"></div>
-    <!-- <script src="https://cdn.jsdelivr.net/gh/bulnes/calculadora-rescisao-trabalhista/dist/main.js"></script> -->
-    <script src="/main.js"></script>
+
+    <script>
+      // Load the script from CDN or local
+      const script = document.createElement("script");
+      script.src =
+        window.location.hostname === "localhost"
+          ? "/main.js"
+          : "https://cdn.jsdelivr.net/gh/bulnes/calculadora-rescisao-trabalhista/dist/1.0.1/main.js";
+      script.async = true;
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>
